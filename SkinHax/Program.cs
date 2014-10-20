@@ -35,8 +35,6 @@ namespace SkinHax
                         if (skinName.Equals("default"))
                             skinName = hero.ChampionName;
                         MenuItem changeSkin = champMenu.AddItem(new MenuItem(skinName, skinName).SetValue<bool>(false));
-                        if (changeSkin.GetValue<bool>())
-                            Packet.S2C.UpdateModel.Encoded(new Packet.S2C.UpdateModel.Struct(hero.NetworkId, (int)skin["num"], hero.ChampionName)).Process(PacketChannel.S2C);
                         changeSkin.ValueChanged += (s, e) =>
                         {
                             if (e.GetNewValue<bool>())
