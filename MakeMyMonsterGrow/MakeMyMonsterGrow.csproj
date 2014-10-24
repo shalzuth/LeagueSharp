@@ -7,8 +7,8 @@
     <ProjectGuid>{4A9F7272-33F7-465C-8BD9-87F801222C9E}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FocusFire</RootNamespace>
-    <AssemblyName>FocusFire</AssemblyName>
+    <RootNamespace>MakeMyMonsterGrow</RootNamespace>
+    <AssemblyName>MakeMyMonsterGrow</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

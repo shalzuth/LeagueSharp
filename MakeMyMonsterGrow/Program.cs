@@ -2,11 +2,11 @@
 using LeagueSharp;
 using LeagueSharp.Common;
 
-namespace FocusFire
+namespace MakeMyMonsterGrow
 {
     internal class Program
     {
-        public static Menu Config = new Menu("FocusFire", "FocusFire", true);
+        public static Menu Config = new Menu("MakeMyMonsterGrow", "MakeMyMonsterGrow", true);
         public static Int32 SequenceId = 1;
         public static Int32 previousNetId = 0x40000019;
         public static Int32 newNetId = 0x40000019;
