@@ -6,7 +6,7 @@ namespace MakeMyMonsterGrow
 {
     internal class Program
     {
-        public static Menu Config = new Menu("MakeMyMonsterGrow", "MakeMyMonsterGrow", true);
+        public static Menu Config;
         public static Int32 SequenceId = 1;
         public static Int32 previousNetId = 0x40000019;
         public static Int32 newNetId = 0x40000019;
@@ -16,6 +16,7 @@ namespace MakeMyMonsterGrow
         }
         static void Game_OnGameLoad(EventArgs args)
         {
+            Config = new Menu("MakeMyMonsterGrow", "MakeMyMonsterGrow", true);
             Game.OnGameSendPacket += Game_OnGameSendPacket;
             Config.AddItem(new MenuItem("Size", "Size Percentage").SetValue(new Slider(150, 50, 200)));
             Config.AddToMainMenu();
