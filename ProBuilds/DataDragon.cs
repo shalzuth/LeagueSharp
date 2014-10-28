@@ -112,7 +112,6 @@ namespace ProBuilds
             Image itemImage = cropImage(ItemImages(Int32.Parse(Regex.Match(spriteName, @"\d+").Value)),
                 new Rectangle((int)imageInfo["x"], (int)imageInfo["y"], (int)imageInfo["w"], (int)imageInfo["h"]));
             ItemImageCache[itemId] = itemImage;
-            itemImage.Save(@"C:\Users\Andy\Downloads\LeagueSharp\" + itemId + ".bmp");
             return itemImage;
         }
         public static Dictionary<String, String> ReverseItemLookupCache = new Dictionary<String, String>();
