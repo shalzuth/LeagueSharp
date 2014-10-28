@@ -14,4 +14,4 @@ Resizes the targeted champion.
 
 ProBuilds
 =======
-Gets item build informations from probuilds.net.
+Gets item build informations from lolbuilder.net.
