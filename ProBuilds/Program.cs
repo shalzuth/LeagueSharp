@@ -6,7 +6,7 @@ namespace ProBuilds
 {
     internal class Program
     {
-        public static Menu Config = new Menu("ProBuilds", "ProBuilds", true);
+        public static Menu Config;
         public static ProBuilds probuild;
         static void Main(string[] args)
         {
@@ -16,6 +16,7 @@ namespace ProBuilds
         {
             new System.Threading.Thread(() =>
             {
+                Config = new Menu("ProBuilds", "ProBuilds", true);
                 probuild = new ProBuilds(ObjectManager.Player.ChampionName);
                 foreach (ProBuilds.Build build in probuild.Builds)
                 {
