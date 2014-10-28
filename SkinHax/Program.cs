@@ -11,7 +11,7 @@ namespace SkinHax
 {
     internal class Program
     {
-        public static Menu Config = new Menu("SkinHax", "SkinHax", true);
+        public static Menu Config;
         public static String DataDragonBase = "http://ddragon.leagueoflegends.com/";
         static void Main(string[] args)
         {
@@ -22,6 +22,7 @@ namespace SkinHax
         {
             new Thread(() =>
             {
+                Config = new Menu("SkinHax", "SkinHax", true);
                 String versionJson = new WebClient().DownloadString(DataDragonBase + "realms/na.json");
                 String gameVersion = (String)((Dictionary<String, Object>)new JavaScriptSerializer().Deserialize<Dictionary<String, Object>>(versionJson)["n"])["champion"];
                 foreach (Obj_AI_Hero hero in ObjectManager.Get<Obj_AI_Hero>())
