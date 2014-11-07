@@ -56,6 +56,9 @@ namespace Shoutbox
                 Shoutbox.password = msg.Substring(msg.IndexOf(" ") + 1);
                 Config.Item("user").SetValue<StringList>(new StringList(new string[] { Shoutbox.account }));
                 Config.Item("pw").SetValue<StringList>(new StringList(new string[] { Shoutbox.password }));
+                if (Shoutbox.account != "")
+                    Shoutbox.Process("update msg");
+                args.Process = false;
             }
         }
 
