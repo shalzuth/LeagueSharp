@@ -38,8 +38,25 @@ namespace Shoutbox
 
             if (Shoutbox.account != "")
                 Shoutbox.Process("update msg");
-
+            Game.OnGameInput += Game_OnGameInput;
             Game.OnGameProcessPacket += Game_OnGameProcessPacket;
+        }
+
+        static void Game_OnGameInput(GameInputEventArgs args)
+        {
+            if (args.Input.StartsWith(".sb "))
+            {
+                Shoutbox.Process(args.Input);
+                args.Process = false;
+            }
+            else if (args.Input.StartsWith(".login"))
+            {
+                String msg = args.Input.Substring(7);
+                Shoutbox.account = msg.Substring(0, msg.IndexOf(" "));
+                Shoutbox.password = msg.Substring(msg.IndexOf(" ") + 1);
+                Config.Item("user").SetValue<StringList>(new StringList(new string[] { Shoutbox.account }));
+                Config.Item("pw").SetValue<StringList>(new StringList(new string[] { Shoutbox.password }));
+            }
         }
 
         static void Game_OnGameProcessPacket(GamePacketEventArgs args)
@@ -48,20 +65,6 @@ namespace Shoutbox
             {
                 if (Shoutbox.account != "")
                     Shoutbox.Process("update msg");
-            }
-            if (args.PacketData[0] == 0x68)
-            {
-                String msg = Encoding.UTF8.GetString(args.PacketData, 18 + 4 + 32, BitConverter.ToInt32(args.PacketData, 18));
-                if (msg.StartsWith(".sb "))
-                    Shoutbox.Process(msg);
-                if (msg.StartsWith(".login "))
-                {
-                    msg = msg.Substring(7);
-                    Shoutbox.account = msg.Substring(0, msg.IndexOf(" "));
-                    Shoutbox.password = msg.Substring(msg.IndexOf(" ") + 1);
-                    Config.Item("user").SetValue<StringList>(new StringList(new string[] { Shoutbox.account }));
-                    Config.Item("pw").SetValue<StringList>(new StringList(new string[] { Shoutbox.password }));
-                }
             }
         }
     }
